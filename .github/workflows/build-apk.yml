@@ -51,7 +51,7 @@ jobs:
           out = []
           for i, l in enumerate(lines):
               if 'What went wrong' in l:
-                  out.extend(lines[i:i+18])
+                  out.extend(lines[i:i+60])
                   break
           for l in lines:
               low = l.lower()
@@ -62,7 +62,7 @@ jobs:
                   break
           if not out:
               out = lines[-8:]
-          for l in out[:12]:
+          for l in out[:30]:
               print('::error::' + l.replace('\r', '')[:900])
           PYEOF
 
