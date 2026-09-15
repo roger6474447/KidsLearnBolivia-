@@ -48,10 +48,21 @@ jobs:
           except FileNotFoundError:
               print('::error::No se generó build.log')
               raise SystemExit(0)
-          errs = [l for l in lines if l.startswith('e: ') or 'FAILED' in l or 'Execution failed' in l or 'What went wrong' in l]
-          if not errs:
-              print('::error::Falló sin mensaje reconocido; últimas líneas: ' + ' | '.join(lines[-5:])[:900])
-          for l in errs[:10]:
+          out = []
+          for i, l in enumerate(lines):
+              if 'What went wrong' in l:
+                  out.extend(lines[i:i+18])
+                  break
+          for l in lines:
+              low = l.lower()
+              if 'error:' in low or l.startswith('e: ') or 'caused by:' in low:
+                  if l not in out:
+                      out.append(l)
+              if len(out) >= 30:
+                  break
+          if not out:
+              out = lines[-8:]
+          for l in out[:12]:
               print('::error::' + l.replace('\r', '')[:900])
           PYEOF
 
