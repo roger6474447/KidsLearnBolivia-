@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">KIDS-LEARN BOLIVIA</string>
+    <string name="menu_title">¿Qué quieres aprender hoy?</string>
+    <string name="menu_subtitle">Toca un juego 🎮</string>
+    <string name="mod_abc">🔤 ABC</string>
+    <string name="mod_abc_desc">Letras con dibujos</string>
+    <string name="mod_numbers">🔢 123</string>
+    <string name="mod_numbers_desc">Cuenta con animalitos</string>
+    <string name="mod_words">🖼️ Palabras</string>
+    <string name="mod_words_desc">Adivina con imágenes</string>
+    <string name="mod_challenge">🏆 Reto</string>
+    <string name="mod_challenge_desc">Gana estrellitas</string>
+    <string name="mod_memory">🧠 Memoria</string>
+    <string name="mod_memory_desc">Pares letra-dibujo</string>
+    <string name="mod_trace">✏️ Trazo</string>
+    <string name="mod_trace_desc">Dibuja la letra</string>
+    <string name="listen">🔊 Escuchar</string>
+    <string name="prev">⬅ Anterior</string>
+    <string name="next">Siguiente ➡</string>
+    <string name="back">🏠 Menú</string>
+    <string name="check">¡Revisar! ✅</string>
+    <string name="stars">⭐ Estrellas: %1$d</string>
+</resources>

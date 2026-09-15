@@ -1,0 +1,16 @@
+# Gradle / Android
+.gradle/
+build/
+app/build/
+local.properties
+*.iml
+.idea/
+.DS_Store
+
+# Keystore – nunca subir claves
+*.jks
+*.keystore
+
+# APKs firmados locales (los de CI se guardan como artifacts)
+*.apk
+*.aab

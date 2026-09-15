@@ -1,0 +1,25 @@
+<resources>
+    <style name="Theme.KidsLearnBolivia" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/sky_dark</item>
+        <item name="colorSecondary">@color/candy_dark</item>
+        <item name="android:windowBackground">@color/sky</item>
+        <item name="android:textColor">@color/ink</item>
+    </style>
+
+    <style name="Theme.KidsLearnBolivia.Fullscreen" parent="Theme.KidsLearnBolivia">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
+    <style name="KidsButton" parent="Widget.Material3.Button">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="cornerRadius">24dp</item>
+        <item name="android:minHeight">64dp</item>
+    </style>
+
+    <style name="KidsCard" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardCornerRadius">28dp</item>
+        <item name="cardElevation">8dp</item>
+    </style>
+</resources>
