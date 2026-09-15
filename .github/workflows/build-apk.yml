@@ -32,7 +32,28 @@ jobs:
           gradle-version: 8.13
 
       - name: Compilar APK debug
-        run: gradle :app:assembleDebug --stacktrace
+        run: |
+          set +e
+          gradle :app:assembleDebug --stacktrace --console=plain > build.log 2>&1
+          CODE=$?
+          tail -40 build.log
+          exit $CODE
+
+      - name: Publicar error real como anotación
+        if: failure()
+        run: |
+          python3 - <<'PYEOF'
+          try:
+              lines = open('build.log', encoding='utf-8', errors='replace').read().splitlines()
+          except FileNotFoundError:
+              print('::error::No se generó build.log')
+              raise SystemExit(0)
+          errs = [l for l in lines if l.startswith('e: ') or 'FAILED' in l or 'Execution failed' in l or 'What went wrong' in l]
+          if not errs:
+              print('::error::Falló sin mensaje reconocido; últimas líneas: ' + ' | '.join(lines[-5:])[:900])
+          for l in errs[:10]:
+              print('::error::' + l.replace('\r', '')[:900])
+          PYEOF
 
       - name: Subir APK
         uses: actions/upload-artifact@v4
